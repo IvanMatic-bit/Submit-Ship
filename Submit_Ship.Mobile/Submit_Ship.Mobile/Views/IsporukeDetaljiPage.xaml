@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Submit_Ship.Mobile.ViewModels"
+             x:Class="Submit_Ship.Mobile.Views.IsporukeDetaljiPage">
+    
+
+    <ContentPage.BindingContext >
+        <viewModels:IsporukeDetaljiViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,0,20,0">
+                <Button x:Name="btnPovratak" Margin="5,5,5,5" CornerRadius="5"  Text="Nazad" BackgroundColor="#3897F0" TextColor="White" HeightRequest="40" WidthRequest="200" HorizontalOptions="Start" Clicked="btnPovratak_Clicked" BorderRadius="0" VerticalOptions="EndAndExpand"/>
+                <Label Text="Naslov" FontSize="Medium" />
+            <Label Text="{Binding Naslov}"               
+             FontSize="Large" />
+            <Label Text="Opis isporuke" FontSize="Medium" />
+            <Label Text="{Binding Opis}"  
+             FontSize="Large" />
+                <Label Text="Datum isporuke" FontSize="Medium" />
+            <Label Text="{Binding Datum}" 
+             FontSize="Large" />
+                <Label Text="Adresa istovara" FontSize="Medium" />
+            <Label Text="{Binding AdresaIstovara}" 
+             FontSize="Large" />
+                <Label Text="Adresa utovara" FontSize="Medium" />
+            <Label Text="{Binding AdresaUtovara}" 
+             FontSize="Large"/>
+                <Label Text="Vrsta usluge" FontSize="Medium" />
+            <Label Text="{Binding Usluga}" 
+             FontSize="Large"/>
+                <Label Text="Količina" FontSize="Medium" />
+            <Label Text="{Binding Kolicina}" 
+              FontSize="20"/>
+                <Label Text="Cijena" FontSize="Medium" />
+            <Label Text="{Binding Cijena}" 
+             FontSize="Large"/>
+                <Label Text="Vozac" FontSize="Medium" />
+            <Label Text="{Binding Vozac}" 
+              FontSize="20"/>
+                <Label Text="Klijent" FontSize="Medium" />
+            <Label Text="{Binding Klijent}" 
+              FontSize="Large"/>
+                <Label Text="Status" FontSize="Medium" />
+            <Label Text="{Binding Status}" 
+              FontSize="Large"/>
+                <Button x:Name="PlatiButton" HorizontalOptions="FillAndExpand" Text="Plati" Clicked="platiButton_Clicked"></Button>
+
+                <Picker x:Name="StatusPicker" ItemsSource="{Binding statusiList}" SelectedItem="{Binding StatusId}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+            <Button x:Name="saveButton" HorizontalOptions="FillAndExpand" Text="Snimi status" Clicked="saveButton_Clicked"></Button>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#1690F4"/>
+                
+            <Label FontSize="Large" Text="Slične isporuke"></Label>
+            <ListView ItemsSource="{Binding IsporukaList}" ItemTapped="OnListViewItemSelected"                      
+                       HorizontalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate
+                     HorizontalScrollBarVisibility="Never">
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                    <Label Text="{Binding Id}" 
+                                LineBreakMode="NoWrap"
+                                  IsVisible="false"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                    <Label Text="{Binding Naslov}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                                            
+                                <Label Text="{Binding UslugaNaziv}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                    <Label x:Name="CijenaIsporuke" Text="{Binding Cijena}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                    <Label Text="{Binding AdresaUtovaraNaziv}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                <Label Text="{Binding AdresaIstovaraNaziv}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

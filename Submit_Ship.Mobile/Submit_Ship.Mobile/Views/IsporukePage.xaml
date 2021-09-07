@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Submit_Ship.Mobile.ViewModels"
+             x:Class="Submit_Ship.Mobile.Views.IsporukePage">
+    <ContentPage.BindingContext>
+        <viewModels:IsporukeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,0,20,0">
+                <Label Text="Isporuke" FontSize="Large"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Picker x:Name="SortPicker" SelectedIndexChanged="SortPicker_SelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Najstarije prvo</x:String>
+                            <x:String>Najnovije prvo</x:String>
+                            <x:String>Najniža cijena prvo</x:String>
+                            <x:String>Najviša cijena prvo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <ListView ItemsSource="{Binding IsporukaList}" 
+                       ItemTapped="OnListViewItemSelected"
+                       HorizontalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Naslov}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                    <Label Text="{Binding OpisIsporuke}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                    <Label Text="{Binding StatusIsporukeNaziv}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                    <Label Text="{Binding Cijena}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                    
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

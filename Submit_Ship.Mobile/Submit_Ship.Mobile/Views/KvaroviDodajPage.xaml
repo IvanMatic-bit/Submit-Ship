@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Submit_Ship.Mobile.ViewModels"
+             x:Class="Submit_Ship.Mobile.Views.KvaroviDodajPage">
+    <ContentPage.BindingContext>
+        <vm:KvaroviDodajViewModel></vm:KvaroviDodajViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,0,20,0">
+                <Label Text="Prijavi kvar na kamionu"              
+                HorizontalOptions="CenterAndExpand" />
+                <Picker ItemsSource="{Binding KamioniList}" SelectedItem="{Binding SelectedKamion}" ItemDisplayBinding="{Binding ProizvodacModel}"></Picker>
+                <Label x:Name="ValidateKamion" Text="Odaberite kamion!" TextColor="Red" IsVisible="false"/>
+               <Label  Text="Opis kvara"></Label>
+                <Entry x:Name="Naslov" Text="{Binding Sadrzaj}"></Entry>
+                <Label x:Name="ValidateSadrzaj" Text="Unesite opis kvara" TextColor="Red" IsVisible="false"/>
+                <Button x:Name="saveButton" HorizontalOptions="FillAndExpand" Text="Snimi" Clicked="saveButton_Clicked"></Button>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

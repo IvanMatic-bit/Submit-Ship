@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Submit_Ship.Mobile.ViewModels"
+             x:Class="Submit_Ship.Mobile.Views.KvaroviPage">
+    <ContentPage.BindingContext>
+        <viewModels:KvaroviViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,0,20,0">
+            <Label Text="Kvarovi" FontSize="Large"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Button Margin="5,5,5,5" CornerRadius="5"  Text="Prijavi kvar" BackgroundColor="#3897F0" TextColor="White" HeightRequest="40" WidthRequest="200" HorizontalOptions="CenterAndExpand" x:Name="NoviKvarButton" Clicked="NoviKvarButton_Clicked" BorderRadius="0" VerticalOptions="EndAndExpand"/>
+               <ListView ItemsSource="{Binding KvaroviList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding KamionProizvodac}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                <Label Text="{Binding Sadrzaj}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                <Label Text="{Binding Komentar}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

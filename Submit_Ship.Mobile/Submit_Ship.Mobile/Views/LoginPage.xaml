@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:Submit_Ship.Mobile.ViewModels"
+             x:Class="Submit_Ship.Mobile.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20,0,20,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label Text="Korisničko ime:"/>
+            <Entry Text="{Binding Username}"></Entry>
+            <Label Text="Lozinka:"/>
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+            <Button Command="{Binding LoginCommand}" Text="Login"></Button>
+            <Label HorizontalOptions="Center" Text="Nemate korisnički profil?"></Label>
+            <Button Margin="5,5,5,5" CornerRadius="5"  Text="Registracija" BackgroundColor="#3897F0" TextColor="White" HeightRequest="40" WidthRequest="200" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked" BorderRadius="0" VerticalOptions="EndAndExpand"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Submit_Ship.Mobile.ViewModels"
+             x:Class="Submit_Ship.Mobile.Views.DodajZahtjevPage">
+    <ContentPage.BindingContext>
+        <vm:ZahtjeviDodajViewModel></vm:ZahtjeviDodajViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" Padding="20,0,20,0" VerticalOptions="CenterAndExpand">
+                <Label  Text="Naslov"></Label>
+                <Entry x:Name="Naslov" Text="{Binding Naslov}"></Entry>
+            <Label x:Name="ValidateNaslov" Text="Ovo polje je obavezno" TextColor="Red" IsVisible="false"/>
+            <Label  Text="Osnovne informacije o isporuci"/>
+                <Editor HeightRequest="250" Text="{Binding Sadrzaj}"></Editor>
+                <Label x:Name="ValidateSadrzaj" Text="Ovo polje je obavezno" TextColor="Red" IsVisible="false"/>
+            <Button x:Name="saveButton"  HorizontalOptions="FillAndExpand" Text="Snimi" Clicked="saveButton_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
