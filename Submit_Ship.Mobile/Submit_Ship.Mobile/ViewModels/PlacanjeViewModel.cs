@@ -223,7 +223,7 @@ namespace Submit_Ship.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                UserDialogs.Instance.Alert(KreditnaKartica.Broj+"-"+KreditnaKartica.ExpYear+"-"+KreditnaKartica.ExpMonth+"-"+APIService.Username+"-"+KreditnaKartica.Cvc, "OK", "OK");
+                UserDialogs.Instance.Alert("Greška prilikom plaćanja "+ ex.Message, "OK", "OK");
 
                 throw ex;
             }
